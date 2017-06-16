@@ -7,8 +7,8 @@
     <ProjectGuid>{FFFBE1EB-CD9C-46A7-927E-CC375BE0D902}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Methods</RootNamespace>
-    <AssemblyName>Methods</AssemblyName>
+    <RootNamespace>GuitarPracticeTrackerEngine</RootNamespace>
+    <AssemblyName>GuitarPracticeTrackerEngine</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -38,8 +38,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoadMethods.cs" />
+    <Compile Include="SaveMethods.cs" />
     <Compile Include="Song.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SongList.cs" />
+    <Compile Include="TuningList.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
