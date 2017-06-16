@@ -3,13 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel;
+using System.Windows.Forms;
 
-namespace Methods
+namespace GuitarPracticeTrackerEngine
 {
     public static class Tunings
     {
         public static BindingList<string> ListOfTunings;
 
-        public static 
+        static Tunings()
+        {
+            ListOfTunings = new BindingList<string>();
+            ListOfTunings.Add("Standard");
+            ListOfTunings.Add("Dropped D");
+        }
+ 
+    
+
+        public static bool AddTuning(string tuningName)
+        {
+            if (ListOfTunings.Any(x => x == tuningName))
+            {
+                return false;
+            }
+            else
+            {
+                ListOfTunings.Add(tuningName);
+                return true;
+            }
+        }
     }
 }

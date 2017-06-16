@@ -15,5 +15,11 @@ namespace UI
         {
             InitializeComponent();
         }
+
+        private void btnAddSong_Click(object sender, EventArgs e)
+        {
+            AddSongUI addSong = new AddSongUI();
+            addSong.Show();
+        }
     }
 }
