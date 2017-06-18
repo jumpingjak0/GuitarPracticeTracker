@@ -57,7 +57,7 @@ namespace UI
             {
                 HeaderText = "Last Practiced",
                 Width = 100,
-                DataPropertyName = "DateTimeLastPracticed"
+                DataPropertyName = "LastPracticedMessage"
             });
 
             
