@@ -78,9 +78,8 @@ namespace UI
 
         private void btnEditSong_Click(object sender, EventArgs e)
         { 
-            string songID = dgvSongList.CurrentRow.Cells[0].Value.ToString();
-            int songIDint = Int32.Parse(songID);
-            Song songToEdit = SongList.FindSongByID(songIDint);
+            
+            Song songToEdit = FindSongFromSelectedDgvRow();
             AddSongUI editSong = new AddSongUI(this, songToEdit);
             editSong.StartPosition = FormStartPosition.CenterParent;
             editSong.Show();
@@ -93,12 +92,25 @@ namespace UI
         }
         private void btnDeleteSong_Click(object sender, EventArgs e)
         {
-            string songID = dgvSongList.CurrentRow.Cells[0].Value.ToString();
-            int songIDint = Int32.Parse(songID);
-            Song songToDelete = SongList.FindSongByID(songIDint);
+         
+            Song songToDelete = FindSongFromSelectedDgvRow();
             DeleteSong deleteSong = new DeleteSong(songToDelete);
             deleteSong.StartPosition = FormStartPosition.CenterParent;
             deleteSong.Show();
+        }
+
+        private void btnPracticedSong_Click(object sender, EventArgs e)
+        {
+            Song songToPractice = FindSongFromSelectedDgvRow();
+            PracticedSong form = new PracticedSong(songToPractice, this);
+            form.Show();
+        }
+
+        private Song FindSongFromSelectedDgvRow()
+        {
+            string songID = dgvSongList.CurrentRow.Cells[0].Value.ToString();
+            int songIDint = Int32.Parse(songID);
+            return SongList.FindSongByID(songIDint);
         }
     }
 }

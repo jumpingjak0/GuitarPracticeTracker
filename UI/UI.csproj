@@ -66,6 +66,12 @@
     <Compile Include="GuitarPracticeTrackerUI.Designer.cs">
       <DependentUpon>GuitarPracticeTrackerUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="PracticedSong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PracticedSong.Designer.cs">
+      <DependentUpon>PracticedSong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddSongUI.resx">
@@ -79,6 +85,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GuitarPracticeTrackerUI.resx">
       <DependentUpon>GuitarPracticeTrackerUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PracticedSong.resx">
+      <DependentUpon>PracticedSong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

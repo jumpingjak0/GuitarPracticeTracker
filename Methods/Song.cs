@@ -19,7 +19,7 @@ namespace GuitarPracticeTrackerEngine
         public string Artist { get; set; }
         public string Tuning { get; set; }
         public DateTime DateTimeLastPracticed { get; set; }
-        public int DaysSinceLastPracticed
+        private int DaysSinceLastPracticed
         {
             get
             {
@@ -44,7 +44,6 @@ namespace GuitarPracticeTrackerEngine
             Tuning = tuning;
             Difficulty = difficulty;
             ID = id;
-            DateTimeLastPracticed = DateTime.Parse("01/01/0001 01:00:00");
             Comments = new List<string>();
         }
 
@@ -57,7 +56,7 @@ namespace GuitarPracticeTrackerEngine
             }
             else
             {
-                return "Last practiced " + DaysSinceLastPracticed + " days ago";
+                return DaysSinceLastPracticed + " days ago";
             }
         }
 

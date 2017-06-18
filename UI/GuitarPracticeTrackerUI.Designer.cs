@@ -133,7 +133,7 @@
             // 
             // btnSortDifficulty
             // 
-            this.btnSortDifficulty.Location = new System.Drawing.Point(16, 161);
+            this.btnSortDifficulty.Location = new System.Drawing.Point(16, 160);
             this.btnSortDifficulty.Name = "btnSortDifficulty";
             this.btnSortDifficulty.Size = new System.Drawing.Size(75, 23);
             this.btnSortDifficulty.TabIndex = 9;
@@ -168,6 +168,7 @@
             this.btnPracticedSong.TabIndex = 2;
             this.btnPracticedSong.Text = "Practiced";
             this.btnPracticedSong.UseVisualStyleBackColor = true;
+            this.btnPracticedSong.Click += new System.EventHandler(this.btnPracticedSong_Click);
             // 
             // btnEditSong
             // 
