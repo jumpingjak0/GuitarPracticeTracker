@@ -15,12 +15,22 @@ namespace UI
         public GuitarPracticeTrackerUI()
         {
             InitializeComponent();
+            
+
+            Song tempSong = new Song("Nothing Else Matters", 0, "Metallica", "Standard", Difficulty.Easy);
+            SongList.ListOfSongs.Add(tempSong);
             dgvSongList.DataSource = SongList.ListOfSongs;
 
-            SongList.PropertyChanged += UpdateSongList;
             dgvSongList.RowHeadersVisible = false;
             dgvSongList.AutoGenerateColumns = false;
             dgvSongList.Columns.Clear();
+
+            dgvSongList.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "ID",
+                Visible = false,
+                DataPropertyName = "ID"
+            });
 
             dgvSongList.Columns.Add(new DataGridViewTextBoxColumn
             {
@@ -58,18 +68,29 @@ namespace UI
 
         private void btnAddSong_Click(object sender, EventArgs e)
         {
-            AddSongUI addSong = new AddSongUI();
+            AddSongUI addSong = new AddSongUI(this);
             addSong.Show();
         }
 
-        public void UpdateSongList(object sender, PropertyChangedEventArgs e)
+        public void UpdateSongList()
         {
+            
             dgvSongList.DataSource = SongList.ListOfSongs;
+            dgvSongList.Refresh();
         }
 
         private void GuitarPracticeTrackerUI_FormClosing(object sender, FormClosingEventArgs e)
         {
             SaveMethods.SavesToXML();
+        }
+
+        private void btnEditSong_Click(object sender, EventArgs e)
+        { 
+            string songID = dgvSongList.CurrentRow.Cells[0].Value.ToString();
+            int songIDint = Int32.Parse(songID);
+            Song tempSong = SongList.FindSongByID(songIDint);
+            AddSongUI editSong = new AddSongUI(this, tempSong);
+            editSong.Show();
         }
     }
 }

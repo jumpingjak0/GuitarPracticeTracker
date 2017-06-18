@@ -12,17 +12,6 @@ namespace GuitarPracticeTrackerEngine
     {
         public static BindingList<Song> ListOfSongs { get; set; }
         private static int IDForNextSong;
-
-        public static event PropertyChangedEventHandler PropertyChanged;
-
-        public static void OnSongListChanged(string name)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(null, new  PropertyChangedEventArgs(name));
-            }
-        }
-
         static SongList()
         {
             ListOfSongs = new BindingList<Song>();
@@ -36,9 +25,12 @@ namespace GuitarPracticeTrackerEngine
         {
             ListOfSongs.Add(new Song(name, IDForNextSong, artist, tuning, difficulty));
             IDForNextSong++;
-            OnSongListChanged("ListOfSongs");
         }
 
-       
+        public static Song FindSongByID(int id)
+        {
+            return ListOfSongs.SingleOrDefault(song => song.ID == id);
+        }
+
     }
 }

@@ -32,5 +32,10 @@ namespace GuitarPracticeTrackerEngine
                 return true;
             }
         }
+
+        public static string FindTuningByString(string inTuning)
+        {
+            return ListOfTunings.SingleOrDefault(tuning => tuning == inTuning);          
+        }
     }
 }

@@ -175,6 +175,7 @@
             this.btnEditSong.TabIndex = 1;
             this.btnEditSong.Text = "EditSong";
             this.btnEditSong.UseVisualStyleBackColor = true;
+            this.btnEditSong.Click += new System.EventHandler(this.btnEditSong_Click);
             // 
             // btnAddSong
             // 
