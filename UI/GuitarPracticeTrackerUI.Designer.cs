@@ -55,12 +55,12 @@
             this.dgvSongList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSongList.Location = new System.Drawing.Point(26, 47);
             this.dgvSongList.Name = "dgvSongList";
-            this.dgvSongList.Size = new System.Drawing.Size(280, 390);
+            this.dgvSongList.Size = new System.Drawing.Size(600, 195);
             this.dgvSongList.TabIndex = 0;
             // 
             // pnlComments
             // 
-            this.pnlComments.Location = new System.Drawing.Point(324, 47);
+            this.pnlComments.Location = new System.Drawing.Point(26, 260);
             this.pnlComments.Name = "pnlComments";
             this.pnlComments.Size = new System.Drawing.Size(317, 207);
             this.pnlComments.TabIndex = 1;
@@ -125,7 +125,7 @@
             this.panel1.Controls.Add(this.btnSortLastTimePracticed);
             this.panel1.Controls.Add(this.btnSortArtist);
             this.panel1.Controls.Add(this.btnSortTuning);
-            this.panel1.Location = new System.Drawing.Point(324, 260);
+            this.panel1.Location = new System.Drawing.Point(445, 260);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(103, 206);
             this.panel1.TabIndex = 8;
@@ -144,7 +144,7 @@
             this.panel2.Controls.Add(this.btnPracticedSong);
             this.panel2.Controls.Add(this.btnEditSong);
             this.panel2.Controls.Add(this.btnAddSong);
-            this.panel2.Location = new System.Drawing.Point(434, 261);
+            this.panel2.Location = new System.Drawing.Point(554, 270);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(87, 144);
             this.panel2.TabIndex = 9;

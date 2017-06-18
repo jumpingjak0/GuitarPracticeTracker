@@ -23,7 +23,7 @@ namespace GuitarPracticeTrackerEngine
         public List<string> Comments { get; set; }   
         public int ID { get; set; }
 
-        public Song(string name, string artist = null, string tuning = null, Difficulty difficulty = Difficulty.Null, int id)
+        public Song(string name, int id, string artist = null, string tuning = null, Difficulty difficulty = Difficulty.Null)
         {
             Name = name;
             Artist = artist;

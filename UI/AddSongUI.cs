@@ -27,6 +27,7 @@ namespace UI
             Difficulty difficulty = (Difficulty)Enum.Parse(typeof(Difficulty), cbDifficulty.Text);
 
             SongList.AddNewSong(name, artist, tuning, difficulty);
+            this.Close();
         }
 
         public string isTextValid(string inText)
@@ -44,5 +45,9 @@ namespace UI
             AddTuning addTuner = new AddTuning();
             addTuner.Show();
         }
+
+        public event EventHandler OnAddSong;
+
+        
     }
 }
