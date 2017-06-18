@@ -15,12 +15,9 @@ namespace UI
         public GuitarPracticeTrackerUI()
         {
             InitializeComponent();
-            
+            LoadMethods.loadSavedSongsFromXML();
 
-            Song tempSong = new Song("Nothing Else Matters", 0, "Metallica", "Standard", Difficulty.Easy);
-            SongList.ListOfSongs.Add(tempSong);
-            dgvSongList.DataSource = SongList.ListOfSongs;
-
+            UpdateDgvSongList();
             dgvSongList.RowHeadersVisible = false;
             dgvSongList.AutoGenerateColumns = false;
             dgvSongList.Columns.Clear();
@@ -72,7 +69,7 @@ namespace UI
             addSong.Show();
         }
 
-        public void UpdateSongList()
+        public void UpdateDgvSongList()
         {
             
             dgvSongList.DataSource = SongList.ListOfSongs;

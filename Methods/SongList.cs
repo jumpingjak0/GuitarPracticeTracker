@@ -15,7 +15,6 @@ namespace GuitarPracticeTrackerEngine
         static SongList()
         {
             ListOfSongs = new BindingList<Song>();
-            LoadMethods.loadSavedSongsFromXML();
             IDForNextSong = 1;
         }
 

@@ -71,7 +71,7 @@ namespace UI
                         break;
                     }
             }
-            mainUIForm.UpdateSongList();
+            mainUIForm.UpdateDgvSongList();
             this.Close();
         }
 
