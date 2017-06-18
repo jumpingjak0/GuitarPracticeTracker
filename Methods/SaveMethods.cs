@@ -12,8 +12,12 @@ namespace GuitarPracticeTrackerEngine
         {
             XmlDocument savedSongs = new XmlDocument();
 
-            XmlNode songsList = savedSongs.CreateElement("SongsList");
-            savedSongs.AppendChild(songsList);
+            XmlNode practiceTracker = savedSongs.CreateElement("PracticeTracker");
+            savedSongs.AppendChild(practiceTracker);
+
+            XmlNode songList = savedSongs.CreateElement("SavedSongs");
+            practiceTracker.AppendChild(songList);
+
 
             foreach (Song song in SongList.ListOfSongs)
             {
@@ -48,14 +52,18 @@ namespace GuitarPracticeTrackerEngine
                     currentComment.AppendChild(savedSongs.CreateTextNode(comment));
                     comments.AppendChild(currentComment);
                 }
+
+                songList.AppendChild(songInformation);
             }
 
-            XmlNode tuning = savedSongs.CreateElement("Tuning");
-            savedSongs.AppendChild(tuning);
+            XmlNode tuning = savedSongs.CreateElement("Tunings");
+            practiceTracker.AppendChild(tuning);
 
             foreach (string tuningName in Tunings.ListOfTunings)
             {
-                tuning.AppendChild(savedSongs.CreateTextNode(tuningName));
+                XmlNode currentTuning = savedSongs.CreateElement("Tuning");
+                currentTuning.AppendChild(savedSongs.CreateTextNode(tuningName));
+                tuning.AppendChild(currentTuning);
             }
             File.WriteAllText(FileName, savedSongs.InnerXml);
         }

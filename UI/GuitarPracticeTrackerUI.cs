@@ -67,5 +67,9 @@ namespace UI
             dgvSongList.DataSource = SongList.ListOfSongs;
         }
 
+        private void GuitarPracticeTrackerUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveMethods.SavesToXML();
+        }
     }
 }

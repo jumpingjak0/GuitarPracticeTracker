@@ -37,12 +37,12 @@
             this.btnSortTuning = new System.Windows.Forms.Button();
             this.btnSortLastTimePracticed = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSortDifficulty = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnAddSong = new System.Windows.Forms.Button();
-            this.btnEditSong = new System.Windows.Forms.Button();
             this.btnPracticedSong = new System.Windows.Forms.Button();
-            this.btnSortDifficulty = new System.Windows.Forms.Button();
+            this.btnEditSong = new System.Windows.Forms.Button();
+            this.btnAddSong = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSongList)).BeginInit();
             this.panel1.SuspendLayout();
@@ -130,6 +130,15 @@
             this.panel1.Size = new System.Drawing.Size(103, 206);
             this.panel1.TabIndex = 8;
             // 
+            // btnSortDifficulty
+            // 
+            this.btnSortDifficulty.Location = new System.Drawing.Point(16, 161);
+            this.btnSortDifficulty.Name = "btnSortDifficulty";
+            this.btnSortDifficulty.Size = new System.Drawing.Size(75, 23);
+            this.btnSortDifficulty.TabIndex = 9;
+            this.btnSortDifficulty.Text = "Difficulty";
+            this.btnSortDifficulty.UseVisualStyleBackColor = true;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -149,15 +158,14 @@
             this.panel2.Size = new System.Drawing.Size(87, 144);
             this.panel2.TabIndex = 9;
             // 
-            // btnAddSong
+            // btnPracticedSong
             // 
-            this.btnAddSong.Location = new System.Drawing.Point(4, 24);
-            this.btnAddSong.Name = "btnAddSong";
-            this.btnAddSong.Size = new System.Drawing.Size(75, 23);
-            this.btnAddSong.TabIndex = 0;
-            this.btnAddSong.Text = "Add Song";
-            this.btnAddSong.UseVisualStyleBackColor = true;
-            this.btnAddSong.Click += new System.EventHandler(this.btnAddSong_Click);
+            this.btnPracticedSong.Location = new System.Drawing.Point(4, 85);
+            this.btnPracticedSong.Name = "btnPracticedSong";
+            this.btnPracticedSong.Size = new System.Drawing.Size(75, 23);
+            this.btnPracticedSong.TabIndex = 2;
+            this.btnPracticedSong.Text = "Practiced";
+            this.btnPracticedSong.UseVisualStyleBackColor = true;
             // 
             // btnEditSong
             // 
@@ -168,23 +176,15 @@
             this.btnEditSong.Text = "EditSong";
             this.btnEditSong.UseVisualStyleBackColor = true;
             // 
-            // btnPracticedSong
+            // btnAddSong
             // 
-            this.btnPracticedSong.Location = new System.Drawing.Point(4, 85);
-            this.btnPracticedSong.Name = "btnPracticedSong";
-            this.btnPracticedSong.Size = new System.Drawing.Size(75, 23);
-            this.btnPracticedSong.TabIndex = 2;
-            this.btnPracticedSong.Text = "Practiced";
-            this.btnPracticedSong.UseVisualStyleBackColor = true;
-            // 
-            // btnSortDifficulty
-            // 
-            this.btnSortDifficulty.Location = new System.Drawing.Point(16, 161);
-            this.btnSortDifficulty.Name = "btnSortDifficulty";
-            this.btnSortDifficulty.Size = new System.Drawing.Size(75, 23);
-            this.btnSortDifficulty.TabIndex = 9;
-            this.btnSortDifficulty.Text = "Difficulty";
-            this.btnSortDifficulty.UseVisualStyleBackColor = true;
+            this.btnAddSong.Location = new System.Drawing.Point(4, 24);
+            this.btnAddSong.Name = "btnAddSong";
+            this.btnAddSong.Size = new System.Drawing.Size(75, 23);
+            this.btnAddSong.TabIndex = 0;
+            this.btnAddSong.Text = "Add Song";
+            this.btnAddSong.UseVisualStyleBackColor = true;
+            this.btnAddSong.Click += new System.EventHandler(this.btnAddSong_Click);
             // 
             // panel3
             // 
@@ -207,6 +207,7 @@
             this.Controls.Add(this.dgvSongList);
             this.Name = "GuitarPracticeTrackerUI";
             this.Text = "Guitar Practive Tracker";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GuitarPracticeTrackerUI_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSongList)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -30,6 +30,7 @@ namespace GuitarPracticeTrackerEngine
             Tuning = tuning;
             Difficulty = difficulty;
             ID = id;
+            Comments = new List<string>();
         }
     }
 }

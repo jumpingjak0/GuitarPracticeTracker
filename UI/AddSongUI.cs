@@ -23,7 +23,7 @@ namespace UI
         {
             string name = isTextValid(tbName.Text);
             string artist = isTextValid(tbArtist.Text);
-            string tuning = cbTuning.SelectedText;
+            string tuning = (string)cbTuning.SelectedValue;
             Difficulty difficulty = (Difficulty)Enum.Parse(typeof(Difficulty), cbDifficulty.Text);
 
             SongList.AddNewSong(name, artist, tuning, difficulty);
