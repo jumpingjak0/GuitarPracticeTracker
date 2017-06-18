@@ -63,11 +63,6 @@ namespace UI
             
         }
 
-        private void btnAddSong_Click(object sender, EventArgs e)
-        {
-            AddSongUI addSong = new AddSongUI(this);
-            addSong.Show();
-        }
 
         public void UpdateDgvSongList()
         {
@@ -85,9 +80,25 @@ namespace UI
         { 
             string songID = dgvSongList.CurrentRow.Cells[0].Value.ToString();
             int songIDint = Int32.Parse(songID);
-            Song tempSong = SongList.FindSongByID(songIDint);
-            AddSongUI editSong = new AddSongUI(this, tempSong);
+            Song songToEdit = SongList.FindSongByID(songIDint);
+            AddSongUI editSong = new AddSongUI(this, songToEdit);
+            editSong.StartPosition = FormStartPosition.CenterParent;
             editSong.Show();
+        }
+        private void btnAddSong_Click(object sender, EventArgs e)
+        {
+            AddSongUI addSong = new AddSongUI(this);
+            addSong.StartPosition = FormStartPosition.CenterParent;
+            addSong.Show();
+        }
+        private void btnDeleteSong_Click(object sender, EventArgs e)
+        {
+            string songID = dgvSongList.CurrentRow.Cells[0].Value.ToString();
+            int songIDint = Int32.Parse(songID);
+            Song songToDelete = SongList.FindSongByID(songIDint);
+            DeleteSong deleteSong = new DeleteSong(songToDelete);
+            deleteSong.StartPosition = FormStartPosition.CenterParent;
+            deleteSong.Show();
         }
     }
 }

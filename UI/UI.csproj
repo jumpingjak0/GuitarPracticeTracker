@@ -54,6 +54,12 @@
     <Compile Include="AddTuning.Designer.cs">
       <DependentUpon>AddTuning.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeleteSong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteSong.Designer.cs">
+      <DependentUpon>DeleteSong.cs</DependentUpon>
+    </Compile>
     <Compile Include="GuitarPracticeTrackerUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddTuning.resx">
       <DependentUpon>AddTuning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteSong.resx">
+      <DependentUpon>DeleteSong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GuitarPracticeTrackerUI.resx">
       <DependentUpon>GuitarPracticeTrackerUI.cs</DependentUpon>

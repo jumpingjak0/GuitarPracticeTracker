@@ -44,6 +44,7 @@
             this.btnEditSong = new System.Windows.Forms.Button();
             this.btnAddSong = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnDeleteSong = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSongList)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -150,6 +151,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnDeleteSong);
             this.panel2.Controls.Add(this.btnPracticedSong);
             this.panel2.Controls.Add(this.btnEditSong);
             this.panel2.Controls.Add(this.btnAddSong);
@@ -160,7 +162,7 @@
             // 
             // btnPracticedSong
             // 
-            this.btnPracticedSong.Location = new System.Drawing.Point(4, 85);
+            this.btnPracticedSong.Location = new System.Drawing.Point(4, 112);
             this.btnPracticedSong.Name = "btnPracticedSong";
             this.btnPracticedSong.Size = new System.Drawing.Size(75, 23);
             this.btnPracticedSong.TabIndex = 2;
@@ -195,6 +197,16 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(280, 33);
             this.panel3.TabIndex = 10;
+            // 
+            // btnDeleteSong
+            // 
+            this.btnDeleteSong.Location = new System.Drawing.Point(4, 83);
+            this.btnDeleteSong.Name = "btnDeleteSong";
+            this.btnDeleteSong.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteSong.TabIndex = 3;
+            this.btnDeleteSong.Text = "Delete Song";
+            this.btnDeleteSong.UseVisualStyleBackColor = true;
+            this.btnDeleteSong.Click += new System.EventHandler(this.btnDeleteSong_Click);
             // 
             // GuitarPracticeTrackerUI
             // 
@@ -237,6 +249,7 @@
         private System.Windows.Forms.Button btnAddSong;
         private System.Windows.Forms.Button btnSortDifficulty;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btnDeleteSong;
     }
 }
 

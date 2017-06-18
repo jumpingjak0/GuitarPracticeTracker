@@ -31,5 +31,10 @@ namespace GuitarPracticeTrackerEngine
             return ListOfSongs.SingleOrDefault(song => song.ID == id);
         }
 
+        public static void DeleteSong(Song songToDelete)
+        {
+            ListOfSongs.Remove(songToDelete);
+        }
+
     }
 }
