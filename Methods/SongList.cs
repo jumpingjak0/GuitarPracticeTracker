@@ -38,10 +38,14 @@ namespace GuitarPracticeTrackerEngine
             ListOfSongs.Remove(songToDelete);
         }
 
-        internal static void LoadSong(string name, string artist, string tuning, Difficulty difficulty, DateTime timeLastPracticed)
+        internal static void LoadSong(string name, string artist, string tuning, Difficulty difficulty, DateTime timeLastPracticed, BindingList<string> comments)
         {
             Song songToLoad = new Song(name, IDForNextSong, artist, tuning, difficulty);
             songToLoad.DateTimeLastPracticed = timeLastPracticed;
+            foreach(string comment in comments)
+            {
+                songToLoad.Comments.Add(comment);
+            }
             ListOfSongs.Add(songToLoad);
             IDForNextSong++;             
         }

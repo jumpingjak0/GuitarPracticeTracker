@@ -40,11 +40,11 @@
             this.btnSortDifficulty = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnDeleteSong = new System.Windows.Forms.Button();
             this.btnPracticedSong = new System.Windows.Forms.Button();
             this.btnEditSong = new System.Windows.Forms.Button();
             this.btnAddSong = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnDeleteSong = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSongList)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -53,17 +53,23 @@
             // 
             // dgvSongList
             // 
+            this.dgvSongList.AllowUserToAddRows = false;
+            this.dgvSongList.AllowUserToDeleteRows = false;
             this.dgvSongList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSongList.Location = new System.Drawing.Point(26, 47);
             this.dgvSongList.Name = "dgvSongList";
+            this.dgvSongList.ReadOnly = true;
+            this.dgvSongList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvSongList.Size = new System.Drawing.Size(600, 195);
             this.dgvSongList.TabIndex = 0;
+            this.dgvSongList.CurrentCellChanged += new System.EventHandler(this.dgvSongList_CurrentCellChanged);
             // 
             // pnlComments
             // 
+            this.pnlComments.AutoScroll = true;
             this.pnlComments.Location = new System.Drawing.Point(26, 260);
             this.pnlComments.Name = "pnlComments";
-            this.pnlComments.Size = new System.Drawing.Size(317, 207);
+            this.pnlComments.Size = new System.Drawing.Size(400, 200);
             this.pnlComments.TabIndex = 1;
             // 
             // textBox1
@@ -160,6 +166,16 @@
             this.panel2.Size = new System.Drawing.Size(87, 144);
             this.panel2.TabIndex = 9;
             // 
+            // btnDeleteSong
+            // 
+            this.btnDeleteSong.Location = new System.Drawing.Point(4, 83);
+            this.btnDeleteSong.Name = "btnDeleteSong";
+            this.btnDeleteSong.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteSong.TabIndex = 3;
+            this.btnDeleteSong.Text = "Delete Song";
+            this.btnDeleteSong.UseVisualStyleBackColor = true;
+            this.btnDeleteSong.Click += new System.EventHandler(this.btnDeleteSong_Click);
+            // 
             // btnPracticedSong
             // 
             this.btnPracticedSong.Location = new System.Drawing.Point(4, 112);
@@ -199,16 +215,6 @@
             this.panel3.Size = new System.Drawing.Size(280, 33);
             this.panel3.TabIndex = 10;
             // 
-            // btnDeleteSong
-            // 
-            this.btnDeleteSong.Location = new System.Drawing.Point(4, 83);
-            this.btnDeleteSong.Name = "btnDeleteSong";
-            this.btnDeleteSong.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteSong.TabIndex = 3;
-            this.btnDeleteSong.Text = "Delete Song";
-            this.btnDeleteSong.UseVisualStyleBackColor = true;
-            this.btnDeleteSong.Click += new System.EventHandler(this.btnDeleteSong_Click);
-            // 
             // GuitarPracticeTrackerUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,6 +228,7 @@
             this.Name = "GuitarPracticeTrackerUI";
             this.Text = "Guitar Practive Tracker";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GuitarPracticeTrackerUI_FormClosing);
+            this.Load += new System.EventHandler(this.GuitarPracticeTrackerUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSongList)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

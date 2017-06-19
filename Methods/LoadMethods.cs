@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Xml;
+using System.ComponentModel;
 
 namespace GuitarPracticeTrackerEngine
 {
@@ -22,13 +23,25 @@ namespace GuitarPracticeTrackerEngine
 
                 foreach(XmlNode song in practiceTrackerInformation.SelectNodes("/PracticeTracker/SavedSongs/SongInformation"))
                 {
+                    BindingList<string> comments = new BindingList<string>();
+                    
                     string name = Convert.ToString(song.Attributes["Name"].Value);
                     string artist = Convert.ToString(song.Attributes["Artist"].Value);
                     DateTime timeLastPracticed = Convert.ToDateTime(song.Attributes["DTLastPracticed"].Value);
                     string tuning = Convert.ToString(song.Attributes["Tuning"].Value);
                     Difficulty difficulty = (Difficulty)Enum.Parse(typeof(Difficulty), Convert.ToString(song.Attributes["Difficulty"].Value));
-                    SongList.LoadSong(name, artist, tuning, difficulty, timeLastPracticed);
+                    string inCommentsLongString = song.Attributes["Comments"].Value;
+                    string[] inCommentsSplit = inCommentsLongString.Split('|');
+                    foreach(string comment in inCommentsSplit)
+                    {
+                        if (comment.Trim() != "")
+                        comments.Add(comment);
+                    }
+
+                    
+                    SongList.LoadSong(name, artist, tuning, difficulty, timeLastPracticed, comments);                  
                 }
+                
 
                 foreach (XmlNode node in practiceTrackerInformation.SelectNodes("/PracticeTracker/Tunings/Tuning")) 
                 {

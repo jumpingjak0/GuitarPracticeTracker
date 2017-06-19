@@ -17,7 +17,6 @@ namespace UI
             InitializeComponent();
             LoadMethods.loadSavedSongsFromXML();
 
-            UpdateDgvSongList();
             dgvSongList.RowHeadersVisible = false;
             dgvSongList.AutoGenerateColumns = false;
             dgvSongList.Columns.Clear();
@@ -60,15 +59,48 @@ namespace UI
                 DataPropertyName = "LastPracticedMessage"
             });
 
-            
         }
 
 
-        public void UpdateDgvSongList()
+        public void UpdateUIDisplay()
         {
             
             dgvSongList.DataSource = SongList.ListOfSongs;
             dgvSongList.Refresh();
+
+            pnlComments.Controls.Clear();
+
+            
+
+            RichTextBox lastAdded = null;
+            int commentNumber = 0;
+            Song commentsToDisplay = FindSongFromSelectedDgvRow();
+            foreach(string comment in commentsToDisplay.Comments)
+            {
+                RichTextBox newComment = new RichTextBox();
+                newComment.Text = comment;
+                Point location = new Point();
+                location.X = 10;
+                location.Y = commentNumber * 50 + 5;
+                newComment.Location = location;
+                newComment.Width = 350;
+                newComment.Height = 50;
+                pnlComments.Controls.Add(newComment);
+                commentNumber++;
+                lastAdded = newComment;
+
+            }
+
+            pnlComments.AutoScroll = false;
+            pnlComments.AutoScroll = true;
+            try
+            {
+                pnlComments.ScrollControlIntoView(lastAdded);
+            }
+            catch
+            { }
+            
+            
         }
 
         private void GuitarPracticeTrackerUI_FormClosing(object sender, FormClosingEventArgs e)
@@ -108,9 +140,33 @@ namespace UI
 
         private Song FindSongFromSelectedDgvRow()
         {
-            string songID = dgvSongList.CurrentRow.Cells[0].Value.ToString();
-            int songIDint = Int32.Parse(songID);
-            return SongList.FindSongByID(songIDint);
+                string songID = dgvSongList.CurrentCell.OwningRow.Cells[0].Value.ToString();
+                int songIDint = Int32.Parse(songID);
+                Song songtoReturn = SongList.FindSongByID(songIDint);
+                return songtoReturn;
+            
+        }
+
+        private void GuitarPracticeTrackerUI_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                dgvSongList.CurrentCellChanged -= dgvSongList_CurrentCellChanged;
+                UpdateUIDisplay();
+                dgvSongList.CurrentCellChanged += dgvSongList_CurrentCellChanged;
+            }
+            catch
+            {
+                dgvSongList.CurrentCellChanged += dgvSongList_CurrentCellChanged;
+                return;
+            }
+        }
+
+
+        private void dgvSongList_CurrentCellChanged(object sender, EventArgs e)
+        {
+            UpdateUIDisplay();
+
         }
     }
 }

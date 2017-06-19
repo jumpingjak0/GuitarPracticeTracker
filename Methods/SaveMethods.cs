@@ -43,16 +43,21 @@ namespace GuitarPracticeTrackerEngine
                 difficulty.Value = song.Difficulty.ToString();
                 songInformation.Attributes.Append(difficulty);
 
-                XmlNode comments = savedSongs.CreateElement("Comments");
-                songInformation.AppendChild(comments);
+                XmlAttribute comments = savedSongs.CreateAttribute("Comments");
+                string inComments = "";
 
-                foreach (string comment in song.Comments)
+                foreach(string comment in song.Comments)
                 {
-                    XmlNode currentComment = savedSongs.CreateElement("Comment");
-                    currentComment.AppendChild(savedSongs.CreateTextNode(comment));
-                    comments.AppendChild(currentComment);
+                    inComments += comment.Trim() + "|"; 
                 }
 
+                comments.Value = inComments;
+
+                comments.Value = inComments;
+                songInformation.Attributes.Append(comments);
+                    
+
+                
                 songList.AppendChild(songInformation);
             }
 

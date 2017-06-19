@@ -25,8 +25,8 @@ namespace UI
         private void btnLogPractice_Click(object sender, EventArgs e)
         {
             songPracticed.DateTimeLastPracticed = DateTime.Now;
-            songPracticed.Comments.Add(rtbPracticeComment.Text);
-            mainUI.UpdateDgvSongList();
+            songPracticed.Comments.Add(rtbPracticeComment.Text + " - " + DateTime.Now.ToString());
+            mainUI.UpdateUIDisplay();
             this.Close();
 
         }
