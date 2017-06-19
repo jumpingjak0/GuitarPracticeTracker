@@ -26,6 +26,13 @@ namespace GuitarPracticeTrackerEngine
                 return DateTime.Now.Subtract(DateTimeLastPracticed).Hours;
             }
         } 
+        public int MinutesSinceLastPracticed
+        {
+            get
+            {
+                return DateTime.Now.Subtract(DateTimeLastPracticed).Minutes;
+            }
+        }
         public string LastPracticedMessage
         {
             get

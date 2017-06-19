@@ -96,6 +96,7 @@
             this.btnSortName.TabIndex = 4;
             this.btnSortName.Text = "Name";
             this.btnSortName.UseVisualStyleBackColor = true;
+            this.btnSortName.Click += new System.EventHandler(this.btnSortName_Click);
             // 
             // btnSortArtist
             // 
@@ -105,6 +106,7 @@
             this.btnSortArtist.TabIndex = 5;
             this.btnSortArtist.Text = "Artist";
             this.btnSortArtist.UseVisualStyleBackColor = true;
+            this.btnSortArtist.Click += new System.EventHandler(this.btnSortArtist_Click);
             // 
             // btnSortTuning
             // 
@@ -114,6 +116,7 @@
             this.btnSortTuning.TabIndex = 6;
             this.btnSortTuning.Text = "Tuning";
             this.btnSortTuning.UseVisualStyleBackColor = true;
+            this.btnSortTuning.Click += new System.EventHandler(this.btnSortTuning_Click);
             // 
             // btnSortLastTimePracticed
             // 
@@ -123,6 +126,7 @@
             this.btnSortLastTimePracticed.TabIndex = 7;
             this.btnSortLastTimePracticed.Text = "Last Practiced";
             this.btnSortLastTimePracticed.UseVisualStyleBackColor = true;
+            this.btnSortLastTimePracticed.Click += new System.EventHandler(this.btnSortLastTimePracticed_Click);
             // 
             // panel1
             // 
@@ -145,6 +149,7 @@
             this.btnSortDifficulty.TabIndex = 9;
             this.btnSortDifficulty.Text = "Difficulty";
             this.btnSortDifficulty.UseVisualStyleBackColor = true;
+            this.btnSortDifficulty.Click += new System.EventHandler(this.btnSortDifficulty_Click);
             // 
             // label2
             // 

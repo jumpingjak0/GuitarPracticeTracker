@@ -65,7 +65,7 @@ namespace UI
         public void UpdateUIDisplay()
         {
             
-            dgvSongList.DataSource = SongList.ListOfSongs;
+            dgvSongList.DataSource = SongList.SortedListOfSongs;
             dgvSongList.Refresh();
 
             pnlComments.Controls.Clear();
@@ -152,6 +152,7 @@ namespace UI
             try
             {
                 dgvSongList.CurrentCellChanged -= dgvSongList_CurrentCellChanged;
+                SongList.SortedListOfSongs = SongList.ListOfSongs;
                 UpdateUIDisplay();
                 dgvSongList.CurrentCellChanged += dgvSongList_CurrentCellChanged;
             }
@@ -167,6 +168,64 @@ namespace UI
         {
             UpdateUIDisplay();
 
+        }
+
+        private void btnSortName_Click(object sender, EventArgs e)
+        {
+            SortAndUpdate("Name");
+        }
+
+        private void btnSortArtist_Click(object sender, EventArgs e)
+        {
+            SortAndUpdate("Artist");
+        }
+
+        private void btnSortTuning_Click(object sender, EventArgs e)
+        {
+            SortAndUpdate("Tuning");
+        }
+
+        private void btnSortLastTimePracticed_Click(object sender, EventArgs e)
+        {
+            SortAndUpdate("Time");
+        }
+
+        private void btnSortDifficulty_Click(object sender, EventArgs e)
+        {
+            SortAndUpdate("Difficulty");
+        }
+        private void SortAndUpdate(string sortValue)
+        {
+            dgvSongList.CurrentCellChanged -= dgvSongList_CurrentCellChanged;
+            switch(sortValue)
+            {
+                case "Name":
+                    {
+                        SongList.SortSongsByName();
+                        break;
+                    }
+                case "Artist":
+                    {
+                        SongList.SortSongsByArtist();
+                        break;
+                    }
+                case "Tuning":
+                    {
+                        SongList.SortSongsByTuning();
+                        break;
+                    }
+                case "Time":
+                    {
+                        SongList.SortSongsByTime();
+                        break;
+                    }
+                case "Difficulty":
+                    SongList.SortByDifficulty();
+                    break;
+
+            }
+            UpdateUIDisplay();
+            dgvSongList.CurrentCellChanged += dgvSongList_CurrentCellChanged;
         }
     }
 }
