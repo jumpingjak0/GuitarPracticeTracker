@@ -22,15 +22,23 @@ namespace GuitarPracticeTrackerEngine
 
         public static bool AddTuning(string tuningName)
         {
-            if (ListOfTunings.Any(x => x == tuningName || tuningName.Trim() != ""))
+            bool tuningValid = true;
+            foreach(string tuning in ListOfTunings)
             {
-                return false;
+                if(tuning == tuningName || tuningName.Trim() == "")
+                {
+                    tuningValid = false;
+                  
+                }
+               
             }
-            else
+            if(tuningValid)
             {
                 ListOfTunings.Add(tuningName);
                 return true;
             }
+            return false;
+
         }
 
         public static string FindTuningByString(string inTuning)

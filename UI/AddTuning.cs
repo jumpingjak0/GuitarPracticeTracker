@@ -22,6 +22,7 @@ namespace UI
             if(Tunings.AddTuning(tbTuningName.Text))
             {
                 MessageBox.Show("Tuning Added");
+                this.Close();
             }
             else
             {
